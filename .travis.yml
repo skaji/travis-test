@@ -4,5 +4,5 @@ perl:
 install:
   - "true"
 script:
-  - false || \{ true \}
+  - false || { true; }
 sudo: false
