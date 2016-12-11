@@ -1,8 +1,8 @@
 language: perl
 perl:
-  - '5.22'
+  - '5.20'
 install:
   - "true"
 script:
-  - "false || { true }"
+  - false || true
 sudo: false
