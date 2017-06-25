@@ -1,8 +1,9 @@
 language: perl
 perl:
-  - '5.20'
+  - '5.12'
+  - '5.26'
 install:
-  - "true"
+  - perl ./cpm install Plack
 script:
-  - false || { true; }
+  - "true"
 sudo: false
