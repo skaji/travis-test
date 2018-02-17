@@ -28,3 +28,4 @@ run "/usr/bin/openssl", "version";
 run "otool", "-L", "/usr/bin/openssl";
 run "otool", "-L", "/System/Library/Perl/Extras/5.18/darwin-thread-multi-2level/auto/Net/SSLeay/SSLeay.bundle";
 run "otool", "-L", "/usr/bin/curl";
+run "otool", "-L", "/usr/lib/libcurl.4.dylib";
