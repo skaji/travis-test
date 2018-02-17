@@ -1,9 +1,8 @@
 language: perl
+sudo: false
 perl:
-  - '5.12'
   - '5.26'
 install:
-  - perl ./cpm install Plack
+  - cpanm -nq HTTP::Tiny IO::Socket::SSL
 script:
-  - "true"
-sudo: false
+  - perl test.pl
