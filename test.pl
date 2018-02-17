@@ -31,3 +31,4 @@ my $res = $http->post($url, {
 });
 
 print "$res->{status} $res->{reason}\n";
+print $res->{content};
