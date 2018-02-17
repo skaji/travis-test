@@ -19,3 +19,11 @@ for my $backend (map "HTTP::Tinyish::$_", qw( LWP HTTPTiny Curl Wget )) {
     print "$res->{status} $res->{reason}\n";
     print $res->{content} unless $res->{success};
 }
+
+sub run {
+    print "---> @_\n"; my $exit = system @_; print "exit $exit\n";
+}
+
+run "/usr/bin/openssl", "version";
+run "otool", "-L", "/usr/bin/openssl";
+run "otool", "-L", "/System/Library/Perl/Extras/5.18/darwin-thread-multi-2level/auto/Net/SSLeay/SSLeay.bundle";
