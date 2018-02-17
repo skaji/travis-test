@@ -1,8 +1,3 @@
-language: perl
-sudo: false
-perl:
-  - '5.26'
-install:
-  - cpanm -nq HTTP::Tiny IO::Socket::SSL
+language: objective-c
 script:
-  - perl test.pl
+  - ./test.sh
