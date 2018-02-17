@@ -3,6 +3,7 @@ use strict;
 use warnings;
 use HTTP::Tinyish;
 
+print "$^X $^V\n";
 for my $klass ("HTTP::Tiny", "HTTP::Tinyish", "IO::Socket::SSL", "Net::SSLeay", "LWP", "LWP::Protocol::https") {
     my $version = eval "require $klass; $klass->VERSION" || "N/A";
     print "$klass $version\n";
