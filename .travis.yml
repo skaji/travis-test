@@ -1,5 +1,3 @@
 language: objective-c
-install:
-  - curl -sSL http://cpanmin.us | perl - -nq --sudo HTTP::Tinyish
 script:
-  - perl test.pl
+  - make
