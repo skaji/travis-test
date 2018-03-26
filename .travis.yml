@@ -5,5 +5,4 @@ before_install:
   - docker pull rakudo-star
   - docker run rakudo-star perl6 -v
 script:
-  - env
-  - docker run -v `pwd`:/app rakudo-star -it bash -c 'cd /app && env'
+  - docker run -v $PWD:/$TRAVIS_REPO_SLUG -it -w /$TRAVIS_REPO_SLUG rakudo-star env
