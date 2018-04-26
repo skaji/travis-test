@@ -1,8 +1,7 @@
-sudo: required
-services:
-  - docker
-before_install:
-  - docker pull rakudo-star
-  - docker run rakudo-star perl6 -v
+language: perl
+sudo: false
+perl:
+  - '5.8'
+  - '5.10'
 script:
-  - docker run -v $PWD:/$TRAVIS_REPO_SLUG -it -w /$TRAVIS_REPO_SLUG rakudo-star env
+  - perl test.pl hoge.gz
