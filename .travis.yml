@@ -3,5 +3,7 @@ sudo: false
 perl:
   - '5.8'
   - '5.10'
+install:
+  - "true"
 script:
   - perl test.pl hoge.gz
