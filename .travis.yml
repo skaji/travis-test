@@ -6,4 +6,4 @@ perl:
 install:
   - "true"
 script:
-  - perl test.pl hoge.gz
+  - prove -l t
