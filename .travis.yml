@@ -1,9 +1,9 @@
 language: perl
+os:
+  - windows
+  - linux
 sudo: false
 perl:
-  - '5.8'
-  - '5.10'
-install:
-  - "true"
+  - '5.28'
 script:
   - prove -l t
