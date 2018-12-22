@@ -18,4 +18,4 @@ matrix:
 install:
   - curl -fsSL https://git.io/cpm | perl - install -g --with-develop --with-recommends
 script:
-  - prove -l t
+  - perl -S prove -l t
