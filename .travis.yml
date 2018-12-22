@@ -13,6 +13,7 @@ matrix:
       before_install:
         - git config --global core.autocrlf input
         - choco install strawberryperl
+        - ls -al; pwd; env; echo $PATH
         - SET "PATH=C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;%PATH%"
 install:
   - curl -fsSL --compressed https://git.io/cpm | perl - install -g --with-develop --with-recommends
