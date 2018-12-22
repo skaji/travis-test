@@ -7,16 +7,13 @@ matrix:
     - os: linux
       perl: '5.10'
     - os: linux
-      perl: '5.16'
-    - os: linux
       perl: '5.28'
     - os: windows
       language: sh
       before_install:
-        - |
-          git config --global core.autocrlf input
-          choco install strawberryperl
-          SET "PATH=C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;%PATH%"
+        - git config --global core.autocrlf input
+        - choco install strawberryperl
+        - SET "PATH=C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;%PATH%"
 install:
   - curl -fsSL --compressed https://git.io/cpm | perl - install -g --with-develop --with-recommends
 script:
