@@ -12,11 +12,10 @@ matrix:
       language: shell
       before_install:
         - choco install strawberryperl
-        - export PATH=/c/Strawberry/bin:/c/Strawberry/perl/site/bin:/c/Strawberry/perl/bin:$PATH
-        - echo $PATH
+        - export PATH=/c/Strawberry/perl/bin:/c/Strawberry/c/bin:$PATH
         - perl -V
-        - perl -MConfig -E 'say "$_: $Config{$_}" for sort keys %Config'
-        - find /c/Strawberry -type f
+        - cpanm -nq --reinstall TAP::Harness
+        - which -a prove
 install:
   - curl -fsSL https://git.io/cpm | perl - install -g --with-develop --with-recommends
 script:
