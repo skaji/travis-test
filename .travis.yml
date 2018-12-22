@@ -12,7 +12,7 @@ matrix:
       language: shell
       before_install:
         - choco install strawberryperl
-        - export PATH=/c/Strawberry/perl/bin:/c/Strawberry/c/bin:$PATH
+        - export PATH=/c/Strawberry/perl/site/bin:/c/Strawberry/perl/bin:/c/Strawberry/c/bin:$PATH
         - perl -V
         - cpanm -n -v --reinstall TAP::Harness
 install:
