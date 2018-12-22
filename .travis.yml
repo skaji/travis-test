@@ -9,17 +9,13 @@ matrix:
     - os: linux
       perl: '5.28'
     - os: windows
-      language: sh
+      language: shell
       before_install:
         - choco install strawberryperl
         - export PATH=/c/Strawberry/bin:/c/Strawberry/perl/site/bin:/c/Strawberry/perl/bin:$PATH
         - echo $PATH
         - perl -V
-        - ls -al /c/Strawberry/bin
-        - ls -al /c/Strawberry/perl/site/bin
-        - ls -al /c/Strawberry/perl/bin
         - find /c/Strawberry -type f
-        - which -a prove
 install:
   - curl -fsSL https://git.io/cpm | perl - install -g --with-develop --with-recommends
 script:
