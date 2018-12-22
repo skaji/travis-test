@@ -13,8 +13,12 @@ matrix:
       before_install:
         - choco install strawberryperl
         - export PATH=/c/Strawberry/bin:/c/Strawberry/perl/site/bin:/c/Strawberry/perl/bin:$PATH
+        - echo $PATH
         - perl -V
 install:
-  - curl -fsSL --compressed https://git.io/cpm | perl - install -g --with-develop --with-recommends
+  - echo $PATH
+  - which -a curl
+  - curl -fsSL https://git.io/cpm | perl - install -g --with-develop --with-recommends
 script:
+  - echo $PATH
   - prove -l t
