@@ -14,7 +14,6 @@ matrix:
         - choco install strawberryperl
         - export PATH=/c/Strawberry/perl/site/bin:/c/Strawberry/perl/bin:/c/Strawberry/c/bin:$PATH
         - perl -V
-        - cpanm -n -v --reinstall TAP::Harness
 install:
   - curl -fsSL https://git.io/cpm | perl - install -g --with-develop --with-recommends
 script:
