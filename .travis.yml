@@ -10,9 +10,10 @@ matrix:
       perl: '5.28'
     - os: windows
       language: shell
+      env: _PREFIX='cmd.exe /x/d/c'
       before_install:
         - choco install strawberryperl
         - export PATH=/c/Strawberry/perl/site/bin:/c/Strawberry/perl/bin:/c/Strawberry/c/bin:$PATH
         - perl -V
-      script:
-        - cmd.exe /x/d/c prove -l t
+script:
+  - $_PREFIX prove -l t
