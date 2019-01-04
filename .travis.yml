@@ -14,7 +14,5 @@ matrix:
         - choco install strawberryperl
         - export PATH=/c/Strawberry/perl/site/bin:/c/Strawberry/perl/bin:/c/Strawberry/c/bin:$PATH
         - perl -V
-install:
-  - curl -fsSL https://git.io/cpm | perl - install -g --with-develop --with-recommends
-script:
-  - perl -S prove -l t
+      script:
+        - cmd.exe /x/d/c prove -l t
