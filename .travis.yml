@@ -1,3 +1,3 @@
 language: perl
 script:
-  - echo $(find t -name '*.t' -o -name '*.t6')
+  - prove -vr --ext .t --ext .t6 t
