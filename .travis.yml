@@ -1,16 +1,30 @@
 language: minimal
 env:
   - FOO=1
-before_install: perl -e 'print "[@ARGV]"' '
+before_install:
+  - |
+    perl -e 'print "[@ARGV]"' '
     1
     2
     3
     4
     '
 install:
-  - "true"
+  - |
+    perl -e 'print "[@ARGV]"' '
+    1
+    2
+    3
+    4
+    '
 script:
-  - "true"
+  - |
+    perl -e 'print "[@ARGV]"' '
+    1
+    2
+    3
+    4
+    '
 
 # services: docker
 # env:
