@@ -1,1 +1,1 @@
-requires 'Plack';
+requires 'IO::Socket::SSL';
