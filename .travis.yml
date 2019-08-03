@@ -12,6 +12,6 @@ script:
   - |
     docker run --init -it -v $PWD:/$TRAVIS_REPO_SLUG -w /$TRAVIS_REPO_SLUG perl:$PERL_VERSION bash -c '
     set -euxo pipefail
-    curl -fsSL --compressed https://git.io/cpm | perl - install -g --with-develop --with-recommends --cpanfile /tmp/cpanfile
+    curl -fsSL --compressed https://git.io/cpm | perl - install -g --with-develop --with-recommends
     prove -l t
     '
