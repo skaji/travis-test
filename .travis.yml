@@ -3,11 +3,11 @@ env:
   - FOO=1
 before_install:
   - |
-  cat <<EOF | perl -nle 'print "[$_]"'
-  a
-  b
-  c
-  EOF
+    cat <<EOF | perl -nle 'print "[$_]"'
+    a
+    b
+    c
+    EOF
 install:
   - "true"
 script:
