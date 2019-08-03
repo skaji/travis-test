@@ -1,8 +1,7 @@
 language: minimal
 env:
   - FOO=1
-before_install:
-  - perl -nle 'print "[@ARGV]"' '
+before_install: perl -e 'print "[@ARGV]"' '
     1
     2
     3
