@@ -2,7 +2,7 @@ language: minimal
 env:
   - FOO=1
 before_install:
-  - |
+  - |-
     cat <<EOF | perl -nle 'print "[$_]"'
     a
     b
