@@ -5,9 +5,12 @@ env:
   - PERL_VERSION=5.10
   - PERL_VERSION=5.16
   - PERL_VERSION=5.30
+before_install:
+  - docker pull perl:$PERL_VERSION
+  - docker run  perl:$PERL_VERSION perl -V
 script:
   - |
-    docker run -v $PWD:/$TRAVIS_REPO_SLUG -it -w /$TRAVIS_REPO_SLUG our-perl bash -c '
+    docker run --init -it -v $PWD:/$TRAVIS_REPO_SLUG -w /$TRAVIS_REPO_SLUG perl:$PERL_VERSION bash -c '
     set -euxo pipefail
     curl -fsSL --compressed https://git.io/cpm | perl - install -g --with-develop --with-recommends --cpanfile /tmp/cpanfile
     prove -l t
