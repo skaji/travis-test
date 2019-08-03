@@ -1,3 +1,11 @@
-language: perl
+language: generic
+services:
+  - docker
+before_install:
+  - docker pull rakudo-star
+  - docker run rakudo-star perl6 -v
 script:
-  - prove -vr --ext .t --ext .t6 t
+  - |
+    docker run -v $PWD:/$TRAVIS_REPO_SLUG -it -w /$TRAVIS_REPO_SLUG rakudo-star bash -c '
+    echo 1
+    '
