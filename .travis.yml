@@ -3,28 +3,28 @@ env:
   - FOO=1
 before_install:
   - |
-    perl -e 'print "[@ARGV]"' '
+    echo '
     1
     2
     3
     4
-    '
+    ' | perl -nle 'print "[$_]"'
 install:
   - |
-    perl -e 'print "[@ARGV]"' '
+    echo '
     1
     2
     3
     4
-    '
+    ' | perl -nle 'print "[$_]"'
 script:
   - |
-    perl -e 'print "[@ARGV]"' '
+    echo '
     1
     2
     3
     4
-    '
+    ' | perl -nle 'print "[$_]"'
 
 # services: docker
 # env:
