@@ -1,11 +1,38 @@
-language: generic
-services:
-  - docker
+language: minimal
+env:
+  - FOO=1
 before_install:
-  - docker pull rakudo-star
-  - docker run rakudo-star perl6 -v
-script:
   - |
-    docker run -v $PWD:/$TRAVIS_REPO_SLUG -it -w /$TRAVIS_REPO_SLUG rakudo-star bash -c '
-    echo 1
-    '
+  cat <<EOF | perl -nle 'print "[$_]"'
+  a
+  b
+  c
+  EOF
+install:
+  - "true"
+script:
+  - "true"
+
+# services: docker
+# env:
+#   - PERL_VERSION=5.8
+#   - PERL_VERSION=5.10
+#   - PERL_VERSION=5.16
+#   - PERL_VERSION=5.30
+# before_install:
+#   - docker pull perl:$PERL_VERSION
+#   - docker run perl:$PERL_VERSION perl --version
+# install:
+#   - |
+#     cat <<EOF | docker build -f - -t our-perl .
+#     FROM perl:$PERL_VERSION
+#     RUN apt-get update && apt-get install -y libdb-dev
+#     COPY cpanfile /tmp/cpanfile
+#     RUN curl -fsSL --compressed https://git.io/cpm | perl - install -g --with-develop --with-recommends --cpanfile /tmp/cpanfile
+#     EOF
+# script:
+#   - docker run -v $PWD:/$TRAVIS_REPO_SLUG -it -w /$TRAVIS_REPO_SLUG our-perl bash -c '
+#     set -eux
+#     prove -lr --timer t xt
+#     '
+
