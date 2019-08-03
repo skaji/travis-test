@@ -1,51 +1,24 @@
 language: minimal
+services: docker
 env:
-  - FOO=1
+  - PERL_VERSION=5.8
+  - PERL_VERSION=5.10
+  - PERL_VERSION=5.16
+  - PERL_VERSION=5.30
 before_install:
-  - |
-    echo '
-    1
-    2
-    3
-    4
-    ' | perl -nle 'print "[$_]"'
+  - docker pull perl:$PERL_VERSION
+  - docker run perl:$PERL_VERSION perl --version
 install:
   - |
-    echo '
-    1
-    2
-    3
-    4
-    ' | perl -nle 'print "[$_]"'
+    echo "
+    FROM perl:$PERL_VERSION
+    RUN apt-get update && apt-get install -y libdb-dev
+    COPY cpanfile /tmp/cpanfile
+    RUN curl -fsSL --compressed https://git.io/cpm | perl - install -g --with-develop --with-recommends --cpanfile /tmp/cpanfile
+    " | docker build -f - -t our-perl .
 script:
-  - |
-    echo '
-    1
-    2
-    3
-    4
-    ' | perl -nle 'print "[$_]"'
-
-# services: docker
-# env:
-#   - PERL_VERSION=5.8
-#   - PERL_VERSION=5.10
-#   - PERL_VERSION=5.16
-#   - PERL_VERSION=5.30
-# before_install:
-#   - docker pull perl:$PERL_VERSION
-#   - docker run perl:$PERL_VERSION perl --version
-# install:
-#   - |
-#     cat <<EOF | docker build -f - -t our-perl .
-#     FROM perl:$PERL_VERSION
-#     RUN apt-get update && apt-get install -y libdb-dev
-#     COPY cpanfile /tmp/cpanfile
-#     RUN curl -fsSL --compressed https://git.io/cpm | perl - install -g --with-develop --with-recommends --cpanfile /tmp/cpanfile
-#     EOF
-# script:
-#   - docker run -v $PWD:/$TRAVIS_REPO_SLUG -it -w /$TRAVIS_REPO_SLUG our-perl bash -c '
-#     set -eux
-#     prove -lr --timer t xt
-#     '
+  - docker run -v $PWD:/$TRAVIS_REPO_SLUG -it -w /$TRAVIS_REPO_SLUG our-perl bash -c '
+    set -eux
+    prove -l t
+    '
 
