@@ -2,12 +2,12 @@ language: minimal
 env:
   - FOO=1
 before_install:
-  - |-
-    cat <<EOF | perl -nle 'print "[$_]"'
-    a
-    b
-    c
-    EOF
+  - perl -nle 'print "[@ARGV]"' '
+    1
+    2
+    3
+    4
+    '
 install:
   - "true"
 script:
